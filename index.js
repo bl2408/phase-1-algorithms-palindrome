@@ -2,15 +2,15 @@ function isPalindrome(word) {
   // Write your algorithm here
 
   //solution 1
-  const flipWord = [];
-  [...word].map(letter=>{
-    flipWord.unshift(letter);
-  });
+  // const flipWord = [];
+  // [...word].map(letter=>{
+  //   flipWord.unshift(letter);
+  // });
 
-  if(word === flipWord.join("")){
-    return true;
-  }
-  return false;
+  // if(word === flipWord.join("")){
+  //   return true;                   
+  // }
+  // return false;
 
   //solution 2
   // const wordArr = [...word];
@@ -33,6 +33,18 @@ function isPalindrome(word) {
   // }
 
   // return pali;
+
+  //solution 2 more refactored/optimized
+  const wordArr = [...word];
+  for(let index = 0; index < wordArr.length; index++){
+    const endIndex = wordArr.length - 1 - index;
+
+    if(index === endIndex && wordArr[index] === wordArr[endIndex]){ break; }
+
+    if(wordArr[index] !== wordArr[endIndex]){ return false; }
+
+  }
+  return true;
 }
 
 /* 
